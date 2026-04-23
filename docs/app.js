@@ -511,15 +511,23 @@ clearPatchSearch.addEventListener("click", () => {
 
 const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
 const views = Array.from(document.querySelectorAll(".view"));
+const navViewButtons = Array.from(document.querySelectorAll(".nav-view-btn"));
+
+const activateView = (targetId) => {
+  tabButtons.forEach((item) => item.classList.toggle("active", item.dataset.viewTarget === targetId));
+  views.forEach((view) => view.classList.toggle("active", view.id === targetId));
+  document.getElementById(targetId).scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 tabButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const targetId = button.dataset.viewTarget;
+    activateView(button.dataset.viewTarget);
+  });
+});
 
-    tabButtons.forEach((item) => item.classList.toggle("active", item === button));
-    views.forEach((view) => view.classList.toggle("active", view.id === targetId));
-
-    document.getElementById(targetId).scrollIntoView({ behavior: "smooth", block: "start" });
+navViewButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activateView(button.dataset.viewTarget);
   });
 });
 

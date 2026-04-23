@@ -1,75 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <title>The Last Sin - Balance</title>
-
-    <style>
-        body {
-            font-family: Arial;
-            background: #0f172a;
-            color: #e2e8f0;
-            padding: 20px;
-        }
-
-        h1,
-        h2 {
-            color: #38bdf8;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-
-        th,
-        td {
-            border: 1px solid #334155;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background: #1e293b;
-        }
-
-        tr:nth-child(even) {
-            background: #020617;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last Sin | Balance Hub</title>
+  <meta
+    name="description"
+    content="Painel web de Game Balance e Patch Notes de The Last Sin para apresentação da equipe de design."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./styles.css">
 </head>
-
 <body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">LS</div>
+        <div class="brand-copy">
+          <strong>The Last Sin</strong>
+          <span>Design Review Hub</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#balance-view">Balance</a>
+        <a class="nav-link" href="#patches-view">Patch Notes</a>
+      </div>
+    </header>
 
-    <h1>The Last Sin - Balance</h1>
+    <main>
+      <section class="hero" id="overview">
+        <article class="hero-panel">
+          <div class="eyebrow">Internal Presentation Layer</div>
+          <h1 class="hero-title">Balance Hub</h1>
+          <p class="hero-copy">
+            Um painel visual para apresentar ao time de design os números centrais de balanceamento
+            e a evolução recente do projeto. Tudo foi reorganizado para leitura rápida, comparação
+            entre sistemas e revisão de patch com cara de produto.
+          </p>
+          <div class="hero-meta">
+            <span class="section-chip">Documento de Balanceamento</span>
+            <span class="section-chip">Timeline de Commits</span>
+            <span class="section-chip">Pronto para GitHub Pages</span>
+          </div>
+        </article>
 
-    <h2>Player Upgrade Stats</h2>
-    <table>
-        <tr>
-            <th>Atributo</th>
-            <th>Valor</th>
-            <th>Descrição</th>
-            <th>Dica</th>
-        </tr>
+        <aside class="hero-side">
+          <article class="summary-card">
+            <div class="panel-label">Leitura Recomendada</div>
+            <strong>Comece pelo balance</strong>
+            <p>
+              Navegue pelas categorias para ver tuning, ritmo, economia, IA, loot e progressão.
+            </p>
+          </article>
+          <article class="summary-card">
+            <div class="panel-label">Depois revise</div>
+            <strong>Os últimos commits</strong>
+            <p>
+              A timeline resume backend, gameplay, dev tools e mudanças que impactam o design.
+            </p>
+          </article>
+        </aside>
+      </section>
 
-        <tr>
-            <td>Modificador de Dano</td>
-            <td>1.0x</td>
-            <td>Multiplicador global do dano</td>
-            <td>Aumenta o dano geral</td>
-        </tr>
+      <section class="stats-grid" id="stats-grid"></section>
 
-        <tr>
-            <td>Velocidade de Movimento</td>
-            <td>5</td>
-            <td>Velocidade base do player</td>
-            <td>Impacta kiting</td>
-        </tr>
+      <section class="tabs" aria-label="Alternar visualizações">
+        <button class="tab-btn active" type="button" data-view-target="balance-view">Game Balance</button>
+        <button class="tab-btn" type="button" data-view-target="patches-view">Patch Notes</button>
+      </section>
 
-    </table>
+      <section class="tab-shell">
+        <div class="view active" id="balance-view">
+          <div class="control-grid">
+            <aside class="toc-panel">
+              <div class="panel-label">Mapa do Documento</div>
+              <h2>Seções do balanceamento</h2>
+              <div class="toc-list" id="toc-list"></div>
+            </aside>
 
+            <div>
+              <div class="search-panel">
+                <div class="panel-label">Filtro Dinâmico</div>
+                <div class="search-fields">
+                  <input
+                    class="search-input"
+                    id="search-input"
+                    type="search"
+                    placeholder="Busque por atributo, valor, sistema ou palavra-chave..."
+                  >
+                  <button class="ghost-btn" type="button" id="clear-search">Limpar</button>
+                </div>
+                <div class="match-copy" id="match-copy"></div>
+              </div>
+
+              <div class="tables" id="balance-sections"></div>
+              <div class="empty-state" id="balance-empty" hidden>
+                Nenhuma linha corresponde ao filtro atual.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="view" id="patches-view">
+          <div class="search-panel">
+            <div class="panel-label">Linha do Tempo</div>
+            <div class="search-fields">
+              <input
+                class="search-input"
+                id="patch-search"
+                type="search"
+                placeholder="Filtre commits por sistema, mecânica, ferramenta ou data..."
+              >
+              <button class="ghost-btn" type="button" id="clear-patch-search">Limpar</button>
+            </div>
+            <div class="match-copy" id="patch-match-copy"></div>
+          </div>
+
+          <div class="timeline" id="timeline"></div>
+          <div class="empty-state" id="patch-empty" hidden>
+            Nenhum commit documentado corresponde ao filtro atual.
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Fonte: <code>GameBalance_DesignDoc.md</code> e <code>PatchNotes.md</code> convertidos para apresentação web.
+      </p>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
 </body>
-
 </html>

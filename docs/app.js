@@ -142,9 +142,94 @@ Este documento e o guia oficial de leitura para a equipe de Game Design de The L
 | Atributo | Valor Atual | O que faz (Descrição) | Dica de Ajuste |
 | --- | --- | --- | --- |
 | Intervalo de Tick de Veneno | 1.0s | Intervalo em segundos entre cada aplicacao de dano continuo de veneno ou queimadura. | Se aumentar, o dano ao longo do tempo fica mais espaçado e suave. Se diminuir, as condicoes ofensivas pressionam muito mais rapido. |
-| Multiplicador de Lentidao do Congelamento | 0.0x | Multiplicador de velocidade usado quando o inimigo esta congelado, em que zero significa totalmente parado. | Se aproximar de 0, o congelamento vira controle total de grupo. Se aproximar de 1, ele passa a ser mais um atraso leve do que uma parada real. |`;
+| Multiplicador de Lentidao do Congelamento | 0.0x | Multiplicador de velocidade usado quando o inimigo esta congelado, em que zero significa totalmente parado. | Se aproximar de 0, o congelamento vira controle total de grupo. Se aproximar de 1, ele passa a ser mais um atraso leve do que uma parada real. |
+
+## Difficulty Scaling v2 (Run 15:00)
+
+| Atributo | Valor Atual | O que faz (DescriÃ§Ã£o) | Dica de Ajuste |
+| --- | --- | --- | --- |
+| DuraÃ§Ã£o Total da Run | 900s (15:00) | DuraÃ§Ã£o total da run antes de interromper a horda e preparar o boss. | Se aumentar, a run fica mais longa e exige mais consistÃªncia. Se diminuir, o ciclo fecha mais cedo. |
+| InÃ­cio da Fase PressÃ£o | 180s (03:00) | Momento em que inimigos Ranged entram na composiÃ§Ã£o da horda. | Se adiantar, a pressÃ£o de zona aparece mais cedo. Se atrasar, o early game fica mais simples. |
+| InÃ­cio da Fase Muro | 420s (07:00) | Momento em que inimigos Tank entram na composiÃ§Ã£o da horda. | Se adiantar, alvos resistentes aparecem cedo. Se atrasar, o meio da run fica mais leve. |
+| InÃ­cio da Fase Caos | 720s (12:00) | Momento em que a composiÃ§Ã£o agressiva final entra em campo. | Se adiantar, o pico de dificuldade chega mais cedo. Se atrasar, o endgame fica mais espaÃ§ado. |
+| Chance de Ranged (PressÃ£o) | 20% | Probabilidade de spawnar Ranged na fase PressÃ£o. | Se aumentar, o jogador sofre mais poke Ã  distÃ¢ncia. |
+| Chance de Ranged (Muro) | 25% | Probabilidade de spawnar Ranged na fase Muro. | Se aumentar, cresce o controle de espaÃ§o inimigo. |
+| Chance de Tank (Muro) | 15% | Probabilidade de spawnar Tank na fase Muro. | Se aumentar, surgem mais paredes de HP. |
+| Chance de Ranged (Caos) | 30% | Probabilidade de spawnar Ranged na fase Caos. | Se aumentar, o caos ganha mais projÃ©teis. |
+| Chance de Tank (Caos) | 25% | Probabilidade de spawnar Tank na fase Caos. | Se aumentar, o fim da run exige mais DPS sustentado. |
+
+## Object Pooling v2
+
+| Atributo | Valor Atual | O que faz (DescriÃ§Ã£o) | Dica de Ajuste |
+| --- | --- | --- | --- |
+| Pool de Ranged | 24 | Quantidade inicial de inimigos atiradores preparados na pool. | Se aumentar, reduz gargalo em fases com muitos atiradores. |
+| Pool de Tanks | 16 | Quantidade inicial de inimigos tank preparados na pool. | Se aumentar, melhora estabilidade em fases pesadas. |
+
+## Reactive Memory Passives
+
+| Atributo | Valor Atual | O que faz (DescriÃ§Ã£o) | Dica de Ajuste |
+| --- | --- | --- | --- |
+| Cura da Simbiose | 10% do dano de companion | Percentual do dano causado por companions convertido em cura para o Vorgrimm. | Se aumentar, companions viram forte sustain. |
+| ReflexÃ£o da Polaridade Inversa | 35% do dano recebido | Percentual do dano recebido refletido ao atacante. | Se aumentar, encostar no player fica mais punitivo. |
+| DuraÃ§Ã£o do Sangramento de Vidro | 3s | DuraÃ§Ã£o do sangramento aplicado por crÃ­ticos de Obsidiana. | Se aumentar, o efeito escala melhor em lutas longas. |
+| Dano do Sangramento de Vidro | 25% do crÃ­tico por tick | Percentual do dano crÃ­tico reaplicado no sangramento. | Se aumentar, crÃ­ticos ficam muito mais letais. |
+| Raio dos EstilhaÃ§os Contagiosos | 2.4 | Raio da explosÃ£o secundÃ¡ria quando inimigo morre por Obsidiana. | Se aumentar, melhora limpeza em cadeia. |
+| Dano dos EstilhaÃ§os Contagiosos | 60% do dano letal | Percentual do dano letal convertido na explosÃ£o secundÃ¡ria. | Se aumentar, mortes em cadeia ficam mais explosivas. |
+| Raio do SacrifÃ­cio VolÃ¡til | 2.1 | Raio da explosÃ£o quando um companion Ã© desativado. | Se aumentar, companions viram bombas de Ã¡rea mais consistentes. |
+| Dano do SacrifÃ­cio VolÃ¡til | 80% do dano base do companion | Percentual convertido em dano da explosÃ£o do companion. | Se aumentar, o fim do companion tem mais impacto. |
+| DuraÃ§Ã£o Visual dos Bursts Reativos | 0.18s | Tempo visual das explosÃµes reativas. | Se aumentar, melhora legibilidade visual. |`;
 
 const patchNotes = [
+  {
+    hash: "4e6f301",
+    date: "28/04/2026",
+    title: "Skills de Lembranças migradas para pipeline 100% data-driven",
+    summary:
+      "Consolida o uso de SkillExecutionConfig nas Lembranças e remove dependências legadas no fluxo de execução de skills e draft.",
+    sections: [
+      {
+        name: "Arquitetura de Combate",
+        items: [
+          "Fluxo de criação de skills no `UpgradeRollManager` padronizado para `BuildExecutionConfig()`.",
+          "Injeção de skills no `DevMenuManager` alinhada ao pipeline unificado de execução.",
+          "Removidas leituras de campos legados de runtime para dano/cooldown/offset no caminho principal de casting."
+        ]
+      },
+      {
+        name: "Dados & Assets",
+        items: [
+          "Regeneradas cartas de Lembrança via menu `The Last Sin/Gerar Cartas de Lembranca`.",
+          "Validação de dados executada para ClassCards e MemoryCards com status limpo.",
+          "Pipeline consolidado para coexistência de skills de Classe e Lembrança sem conflito."
+        ]
+      }
+    ]
+  },
+  {
+    hash: "d34b16f",
+    date: "28/04/2026",
+    title: "Hardening de runtime e loop de 15 minutos com boss",
+    summary:
+      "Fortalece estabilidade de runtime, sanity checks e progressão temporal da run até transição para boss placeholder.",
+    sections: [
+      {
+        name: "Runtime & Segurança",
+        items: [
+          "Adicionado watchdog de órfãos para limpar hitboxes/projéteis ativos indevidos.",
+          "Sanity checks de combate no boot da cena para validar reset, pools e estado inicial.",
+          "Aprimorada limpeza de estado entre Lobby/Combat para reduzir resíduos de runtime."
+        ]
+      },
+      {
+        name: "Horda & Progressão",
+        items: [
+          "Curva temporal de horda estruturada em fases até 15:00 com composição mista.",
+          "Parada de horda comum no fim da run e gatilho de boss placeholder.",
+          "Suporte de testes e ferramentas de debug para time skip e validação de fases."
+        ]
+      }
+    ]
+  },
   {
     hash: "5fc7ef8",
     date: "20/04/2026",
@@ -340,7 +425,7 @@ const stats = [
   { label: "Categorias de Balance", value: parsedBalance.sections.length },
   { label: "Parâmetros de Tuning", value: totalRows },
   { label: "Commits Documentados", value: patchNotes.length },
-  { label: "Última Atualização", value: "23/04/2026" }
+  { label: "Última Atualização", value: "28/04/2026" }
 ];
 
 const statsGrid = document.getElementById("stats-grid");

@@ -146,38 +146,38 @@ Este documento e o guia oficial de leitura para a equipe de Game Design de The L
 
 ## Difficulty Scaling v2 (Run 15:00)
 
-| Atributo | Valor Atual | O que faz (DescriÃ§Ã£o) | Dica de Ajuste |
+| Atributo | Valor Atual | O que faz (Descrição) | Dica de Ajuste |
 | --- | --- | --- | --- |
-| DuraÃ§Ã£o Total da Run | 900s (15:00) | DuraÃ§Ã£o total da run antes de interromper a horda e preparar o boss. | Se aumentar, a run fica mais longa e exige mais consistÃªncia. Se diminuir, o ciclo fecha mais cedo. |
-| InÃ­cio da Fase PressÃ£o | 180s (03:00) | Momento em que inimigos Ranged entram na composiÃ§Ã£o da horda. | Se adiantar, a pressÃ£o de zona aparece mais cedo. Se atrasar, o early game fica mais simples. |
-| InÃ­cio da Fase Muro | 420s (07:00) | Momento em que inimigos Tank entram na composiÃ§Ã£o da horda. | Se adiantar, alvos resistentes aparecem cedo. Se atrasar, o meio da run fica mais leve. |
-| InÃ­cio da Fase Caos | 720s (12:00) | Momento em que a composiÃ§Ã£o agressiva final entra em campo. | Se adiantar, o pico de dificuldade chega mais cedo. Se atrasar, o endgame fica mais espaÃ§ado. |
-| Chance de Ranged (PressÃ£o) | 20% | Probabilidade de spawnar Ranged na fase PressÃ£o. | Se aumentar, o jogador sofre mais poke Ã  distÃ¢ncia. |
-| Chance de Ranged (Muro) | 25% | Probabilidade de spawnar Ranged na fase Muro. | Se aumentar, cresce o controle de espaÃ§o inimigo. |
+| Duração Total da Run | 900s (15:00) | Duração total da run antes de interromper a horda e preparar o boss. | Se aumentar, a run fica mais longa e exige mais consistência. Se diminuir, o ciclo fecha mais cedo. |
+| Início da Fase Pressão | 180s (03:00) | Momento em que inimigos Ranged entram na composição da horda. | Se adiantar, a pressão de zona aparece mais cedo. Se atrasar, o early game fica mais simples. |
+| Início da Fase Muro | 420s (07:00) | Momento em que inimigos Tank entram na composição da horda. | Se adiantar, alvos resistentes aparecem cedo. Se atrasar, o meio da run fica mais leve. |
+| Início da Fase Caos | 720s (12:00) | Momento em que a composição agressiva final entra em campo. | Se adiantar, o pico de dificuldade chega mais cedo. Se atrasar, o endgame fica mais espaçado. |
+| Chance de Ranged (Pressão) | 20% | Probabilidade de spawnar Ranged na fase Pressão. | Se aumentar, o jogador sofre mais poke à distância. |
+| Chance de Ranged (Muro) | 25% | Probabilidade de spawnar Ranged na fase Muro. | Se aumentar, cresce o controle de espaço inimigo. |
 | Chance de Tank (Muro) | 15% | Probabilidade de spawnar Tank na fase Muro. | Se aumentar, surgem mais paredes de HP. |
-| Chance de Ranged (Caos) | 30% | Probabilidade de spawnar Ranged na fase Caos. | Se aumentar, o caos ganha mais projÃ©teis. |
+| Chance de Ranged (Caos) | 30% | Probabilidade de spawnar Ranged na fase Caos. | Se aumentar, o caos ganha mais projéteis. |
 | Chance de Tank (Caos) | 25% | Probabilidade de spawnar Tank na fase Caos. | Se aumentar, o fim da run exige mais DPS sustentado. |
 
 ## Object Pooling v2
 
-| Atributo | Valor Atual | O que faz (DescriÃ§Ã£o) | Dica de Ajuste |
+| Atributo | Valor Atual | O que faz (Descrição) | Dica de Ajuste |
 | --- | --- | --- | --- |
 | Pool de Ranged | 24 | Quantidade inicial de inimigos atiradores preparados na pool. | Se aumentar, reduz gargalo em fases com muitos atiradores. |
 | Pool de Tanks | 16 | Quantidade inicial de inimigos tank preparados na pool. | Se aumentar, melhora estabilidade em fases pesadas. |
 
 ## Reactive Memory Passives
 
-| Atributo | Valor Atual | O que faz (DescriÃ§Ã£o) | Dica de Ajuste |
+| Atributo | Valor Atual | O que faz (Descrição) | Dica de Ajuste |
 | --- | --- | --- | --- |
 | Cura da Simbiose | 10% do dano de companion | Percentual do dano causado por companions convertido em cura para o Vorgrimm. | Se aumentar, companions viram forte sustain. |
-| ReflexÃ£o da Polaridade Inversa | 35% do dano recebido | Percentual do dano recebido refletido ao atacante. | Se aumentar, encostar no player fica mais punitivo. |
-| DuraÃ§Ã£o do Sangramento de Vidro | 3s | DuraÃ§Ã£o do sangramento aplicado por crÃ­ticos de Obsidiana. | Se aumentar, o efeito escala melhor em lutas longas. |
-| Dano do Sangramento de Vidro | 25% do crÃ­tico por tick | Percentual do dano crÃ­tico reaplicado no sangramento. | Se aumentar, crÃ­ticos ficam muito mais letais. |
-| Raio dos EstilhaÃ§os Contagiosos | 2.4 | Raio da explosÃ£o secundÃ¡ria quando inimigo morre por Obsidiana. | Se aumentar, melhora limpeza em cadeia. |
-| Dano dos EstilhaÃ§os Contagiosos | 60% do dano letal | Percentual do dano letal convertido na explosÃ£o secundÃ¡ria. | Se aumentar, mortes em cadeia ficam mais explosivas. |
-| Raio do SacrifÃ­cio VolÃ¡til | 2.1 | Raio da explosÃ£o quando um companion Ã© desativado. | Se aumentar, companions viram bombas de Ã¡rea mais consistentes. |
-| Dano do SacrifÃ­cio VolÃ¡til | 80% do dano base do companion | Percentual convertido em dano da explosÃ£o do companion. | Se aumentar, o fim do companion tem mais impacto. |
-| DuraÃ§Ã£o Visual dos Bursts Reativos | 0.18s | Tempo visual das explosÃµes reativas. | Se aumentar, melhora legibilidade visual. |`;
+| Reflexão da Polaridade Inversa | 35% do dano recebido | Percentual do dano recebido refletido ao atacante. | Se aumentar, encostar no player fica mais punitivo. |
+| Duração do Sangramento de Vidro | 3s | Duração do sangramento aplicado por críticos de Obsidiana. | Se aumentar, o efeito escala melhor em lutas longas. |
+| Dano do Sangramento de Vidro | 25% do crítico por tick | Percentual do dano crítico reaplicado no sangramento. | Se aumentar, críticos ficam muito mais letais. |
+| Raio dos Estilhaços Contagiosos | 2.4 | Raio da explosão secundária quando inimigo morre por Obsidiana. | Se aumentar, melhora limpeza em cadeia. |
+| Dano dos Estilhaços Contagiosos | 60% do dano letal | Percentual do dano letal convertido na explosão secundária. | Se aumentar, mortes em cadeia ficam mais explosivas. |
+| Raio do Sacrifício Volátil | 2.1 | Raio da explosão quando um companion é desativado. | Se aumentar, companions viram bombas de área mais consistentes. |
+| Dano do Sacrifício Volátil | 80% do dano base do companion | Percentual convertido em dano da explosão do companion. | Se aumentar, o fim do companion tem mais impacto. |
+| Duração Visual dos Bursts Reativos | 0.18s | Tempo visual das explosões reativas. | Se aumentar, melhora legibilidade visual. |`;
 
 const patchNotes = [
   {
@@ -558,7 +558,16 @@ const applyBalanceFilter = () => {
     : `${totalRows} parâmetros distribuídos em ${parsedBalance.sections.length} categorias.`;
 };
 
-searchInput.addEventListener("input", applyBalanceFilter);
+const debounce = (fn, wait = 120) => {
+  let timerId;
+  return (...args) => {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => fn(...args), wait);
+  };
+};
+
+const debouncedApplyBalanceFilter = debounce(applyBalanceFilter, 120);
+searchInput.addEventListener("input", debouncedApplyBalanceFilter);
 clearSearch.addEventListener("click", () => {
   searchInput.value = "";
   applyBalanceFilter();
@@ -588,7 +597,8 @@ const applyPatchFilter = () => {
     : `${patchNotes.length} commits estruturados para review da equipe.`;
 };
 
-patchSearch.addEventListener("input", applyPatchFilter);
+const debouncedApplyPatchFilter = debounce(applyPatchFilter, 120);
+patchSearch.addEventListener("input", debouncedApplyPatchFilter);
 clearPatchSearch.addEventListener("click", () => {
   patchSearch.value = "";
   applyPatchFilter();
@@ -601,7 +611,7 @@ const navViewButtons = Array.from(document.querySelectorAll(".nav-view-btn"));
 const activateView = (targetId) => {
   tabButtons.forEach((item) => item.classList.toggle("active", item.dataset.viewTarget === targetId));
   views.forEach((view) => view.classList.toggle("active", view.id === targetId));
-  document.getElementById(targetId).scrollIntoView({ behavior: "smooth", block: "start" });
+  document.getElementById(targetId).scrollIntoView({ behavior: "auto", block: "start" });
 };
 
 tabButtons.forEach((button) => {
